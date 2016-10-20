@@ -26,3 +26,5 @@ else:
                 else:
                 	print "La ip %s no tiene concesiones" % (sys.argv[1])
 
+	else:
+		print "La cadena %s no corresponde al formato de una IP" % (sys.argv[1])
