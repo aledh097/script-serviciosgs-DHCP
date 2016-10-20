@@ -17,12 +17,12 @@ if sys.argv[1] == "-l":
         print ip_reservadas + "\n"
 
 else:
-        ip_concedidas = commands.getoutput("cat /var/lib/dhcp/dhcpd.leases |grep -A6 '%s' | grep hardware | awk '{print $3}' |sort |uniq" % sys.argv[$
+        ip_concedidas = commands.getoutput("cat /var/lib/dhcp/dhcpd.leases |grep -A6 '%s' | grep hardware | awk '{print $3}' |sort |uniq" % sys.argv[1])
         ip_concedidas = ip_concedidas.replace(";", ".");
         check=re.compile('\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$')
         if check.match(sys.argv[1]):
                 if len(ip_concedidas) > 0:
-                        print "La ip %s ha sido concedida y su MAC correspondiente es: %s" % (sys.argv[1],ip_concedidas)
+                	print "La ip %s ha sido concedida y su MAC correspondiente es: %s" % (sys.argv[1],ip_concedidas)
                 else:
-                        print "La ip %s no tiene concesiones" % (sys.argv[1])
+                	print "La ip %s no tiene concesiones" % (sys.argv[1])
 
